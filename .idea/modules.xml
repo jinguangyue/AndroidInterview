@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidInterview.iml" filepath="$PROJECT_DIR$/AndroidInterview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testa/testa.iml" filepath="$PROJECT_DIR$/testa/testa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testb/testb.iml" filepath="$PROJECT_DIR$/testb/testb.iml" />
+    </modules>
+  </component>
+</project>
