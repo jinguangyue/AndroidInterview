@@ -8,8 +8,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Deadlock" />
+            <option value="$PROJECT_DIR$/Getdataappapk" />
+            <option value="$PROJECT_DIR$/chapter_3" />
+            <option value="$PROJECT_DIR$/slidingconflict" />
             <option value="$PROJECT_DIR$/testa" />
             <option value="$PROJECT_DIR$/testb" />
+            <option value="$PROJECT_DIR$/viewdrag" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

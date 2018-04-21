@@ -16,10 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestCActivity"
-            android:exported="true"
+        <activity
+            android:name=".TestCActivity"
+            android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
-            ></activity>
+            android:exported="true" />
+        <activity
+            android:name=".TestD"
+            />
+        <activity android:name=".TestFActivity"></activity>
     </application>
 
 </manifest>

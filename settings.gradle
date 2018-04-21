@@ -1,1 +1,2 @@
-include ':testa', ':testb'
+include ':testa', ':testb', ':viewdrag', ':slidingconflict', ':Getdataappapk', ':Deadlock'
+include ':chapter_3'
