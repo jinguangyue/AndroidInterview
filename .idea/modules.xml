@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidInterview.iml" filepath="$PROJECT_DIR$/AndroidInterview.iml" />
       <module fileurl="file://$PROJECT_DIR$/Deadlock/Deadlock.iml" filepath="$PROJECT_DIR$/Deadlock/Deadlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/Getdataappapk/Getdataappapk.iml" filepath="$PROJECT_DIR$/Getdataappapk/Getdataappapk.iml" />
-      <module fileurl="file://$PROJECT_DIR$/chapter_3/chapter_3.iml" filepath="$PROJECT_DIR$/chapter_3/chapter_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IPC/IPC.iml" filepath="$PROJECT_DIR$/IPC/IPC.iml" />
       <module fileurl="file://$PROJECT_DIR$/notification8.0/notification8.0.iml" filepath="$PROJECT_DIR$/notification8.0/notification8.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingconflict/slidingconflict.iml" filepath="$PROJECT_DIR$/slidingconflict/slidingconflict.iml" />
       <module fileurl="file://$PROJECT_DIR$/testa/testa.iml" filepath="$PROJECT_DIR$/testa/testa.iml" />
