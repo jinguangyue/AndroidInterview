@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Scroller;
 
 public class HorizontalScrollView extends ViewGroup {
@@ -42,6 +43,8 @@ public class HorizontalScrollView extends ViewGroup {
     }
 
 
+/*
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -70,6 +73,63 @@ public class HorizontalScrollView extends ViewGroup {
             measuredHeight = childView.getMeasuredHeight();
             setMeasuredDimension(measuredWidth, measuredHeight);
         }
+    }
+
+*/
+
+    private int mWidth;
+    private int mHeight;
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(mWidth, mHeight);
+        } else if (widthSpecMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(widthMeasureSpec, heightSpecSize);
+        } else if (heightSpecMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(mHeight, widthSpecSize);
+        }
+    }
+
+    private View view;
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (hasWindowFocus) {
+            int width = view.getMeasuredWidth();
+            int height = view.getMeasuredHeight();
+        }
+
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                int width = view.getMeasuredWidth();
+                int height = view.getMeasuredHeight();
+            }
+        });
+
+
+        int widthMeasureSpec = MeasureSpec.makeMeasureSpec((1 << 30) - 1, MeasureSpec.UNSPECIFIED);
+        int heightMeasureSpec = MeasureSpec.makeMeasureSpec((1 << 30) - 1, MeasureSpec.AT_MOST);
+        view.measure(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+
+
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = view.getMeasuredWidth();
+                int height = view.getMeasuredHeight();
+            }
+        });
     }
 
 
@@ -104,17 +164,17 @@ public class HorizontalScrollView extends ViewGroup {
         int x = (int) ev.getX();
         int y = (int) ev.getY();
 
-        switch (ev.getAction()){
+        switch (ev.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
                 isIntercept = false;
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                int deltX = x - mLastXIntercept ;
+                int deltX = x - mLastXIntercept;
                 int deltY = y - mLastYIntercept;
 
-                if(Math.abs(deltX) > Math.abs(deltY)){
+                if (Math.abs(deltX) > Math.abs(deltY)) {
                     isIntercept = true;
                 } else {
                     isIntercept = false;
@@ -142,7 +202,7 @@ public class HorizontalScrollView extends ViewGroup {
         int y = (int) event.getY();
 
 
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (!scroller.isFinished()) {
                     scroller.abortAnimation();

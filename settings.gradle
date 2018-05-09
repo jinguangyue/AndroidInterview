@@ -1,2 +1,2 @@
-include ':testa', ':testb', ':viewdrag', ':slidingconflict', ':Getdataappapk', ':Deadlock', ':notification8.0'
+include ':testa', ':testb', ':viewdrag', ':slidingconflict', ':Getdataappapk', ':Deadlock', ':notification8.0', ':Algorithm'
 include ':chapter_3'

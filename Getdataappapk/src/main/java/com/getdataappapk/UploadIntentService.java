@@ -156,8 +156,8 @@ public class UploadIntentService extends Service {
                 }, 3000);
 
 
-                message = "文件上传完毕， 开始删除";
-                notifyMessage(message);
+                /*message = "文件上传完毕， 开始删除";
+                notifyMessage(message);*/
                 Log.e("yue", "文件上传完毕， 开始删除");
                 new Thread(new Runnable() {
                     @Override
@@ -177,18 +177,14 @@ public class UploadIntentService extends Service {
                                         if(!appDir.contains(getPackageName())){
                                             if(AExecuteAsRoot.canRunRootCommands()){
                                                 AExecuteAsRoot.execRootCmd("rm -r " + appDir);
+
+                                                Message message1 = new Message();
+                                                message1.obj = "删除完毕";
+                                                message1.what = 0;
+                                                handler.sendMessage(message1);
                                             }
                                         }
 
-                                        Message message1 = new Message();
-                                        message1.obj = "删除完毕";
-                                        message1.what = 0;
-                                        handler.sendMessage(message1);
-
-
-//                                        deleteDirectory(file);
-//                                        boolean isDelete = file.delete();
-//                                        Log.e("yue", "删除" + file.exists());
                                     }
                                 }
 
@@ -207,24 +203,6 @@ public class UploadIntentService extends Service {
 
     }
 
-    private class ExecuteAsRoot extends AExecuteAsRoot {
-
-        private String path;
-
-        public ExecuteAsRoot(String path) {
-            this.path = path;
-        }
-
-        @Override
-        protected ArrayList<String> getCommandsToExecute() {
-            ArrayList<String> list = new ArrayList<String>();
-            list.add("adb shell");
-            list.add("su");
-            list.add("rm -r /data/app/");
-            return list;
-        }
-    }
-
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -237,22 +215,6 @@ public class UploadIntentService extends Service {
         }
     };
 
-
-    public void deleteDirectory(File file) {
-        if (file.exists()) {
-            if (file.isDirectory()) {
-                File[] files = file.listFiles();
-                for (int i = 0; i < files.length; i++) {
-                    if (files[i].isDirectory()) {
-                        deleteDirectory(files[i]);
-                    } else {
-                        files[i].delete();
-                    }
-                }
-            }
-            file.delete();
-        }
-    }
 
     private void notifyMessage(String message) {
         Intent intent = new Intent(MainActivity.MESSAGR_ACTION);
