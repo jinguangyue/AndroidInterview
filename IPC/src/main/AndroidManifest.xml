@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ipc">
 
-    <uses-permission android:name="com.access_bookservice"
-        android:protectionLevel="normal"/>
+    <uses-permission
+        android:name="com.access_bookservice"
+        android:protectionLevel="normal" />
 
-    <permission android:name="com.access_bookservice"
-        android:protectionLevel="normal"/>
+    <permission
+        android:name="com.access_bookservice"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".aidl.BookManagerActivity">
+        <activity android:name=".binderpool.BinderPoolActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,13 +28,18 @@
         <service
             android:name=".messenger.MessengerService"
             android:enabled="true"
-            android:process=":remote"
-            android:exported="true"></service>
-
-        <service android:name=".aidl.BookManagerService"
+            android:exported="true"
+            android:process=":remote" />
+        <service
+            android:name=".aidl.BookManagerService"
             android:permission="com.access_bookservice"
-            android:process=":remote"/>
-
+            android:process=":remote" />
+        <service
+            android:name=".binderpool.BinderPoolService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote"
+            />
     </application>
 
 </manifest>
