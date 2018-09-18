@@ -12,10 +12,12 @@
             <option value="$PROJECT_DIR$/Deadlock" />
             <option value="$PROJECT_DIR$/Getdataappapk" />
             <option value="$PROJECT_DIR$/IPC" />
+            <option value="$PROJECT_DIR$/TestSetTheme" />
             <option value="$PROJECT_DIR$/notification8.0" />
             <option value="$PROJECT_DIR$/slidingconflict" />
             <option value="$PROJECT_DIR$/testa" />
             <option value="$PROJECT_DIR$/testb" />
+            <option value="$PROJECT_DIR$/testgradlemutitask" />
             <option value="$PROJECT_DIR$/viewdrag" />
           </set>
         </option>

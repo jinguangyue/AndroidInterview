@@ -6,7 +6,7 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-    int[] a = {1,2,3,4,5,6,7,8,9,10};
+    int[] a = {4,2,6,1,5,3,7,8,9,10};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,17 +14,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //快速排序
-//        quicksort(a, 0, a.length - 1);
+        quicksort(a, 0, a.length - 1);
 
         //冒泡排序
 //        bubbleSort(a);
 
         //二分法查找
-        searchRecursive(a, 0, a.length - 1, 3);
+//        searchRecursive(a, 0, a.length - 1, 3);
 
-        /*for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             Log.i("yue", a[i] + "");
-        }*/
+        }
     }
 
     private void searchRecursive(int[] a, int left, int end, int findValue) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (left < end) {
                 int temp = a[left];
-                a[left] = a[end];
+                a[left] =  base;
                 a[end] = temp;
                 end--;
             }
